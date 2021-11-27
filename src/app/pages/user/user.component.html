@@ -1,0 +1,80 @@
+<div>
+    <mat-toolbar class="header">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" mat-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>I.E.P. José Granda</span>
+        <span class="spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+        </button>
+    </mat-toolbar>
+</div>
+
+<mat-sidenav-container>
+    <mat-sidenav class="sidenav-menu-container" #sidenav mode="side" closed disableClose>
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sidenav.opened" style="color: white">
+                close
+            </mat-icon>
+        </button>
+        <mat-nav-list>
+            <div class="sidenav-menu-container-inner">
+                <div class="perfil">
+                    <div style="text-align: center;">
+                        <img class="perfil" src="assets/perfil.jpg">
+                    </div>
+                    <div style="color: white; text-align: center; padding-top: 10px;">
+                        <h6>{{name}}</h6>
+                        <h6 style="color:white;">{{email}}</h6>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="sidenav-menu-body">
+                    <div class="sidenav-menu-list">
+                        <div class="sidenav-menu-items">
+                            <a mat-list-item style="padding:0px;" routerLink="dashboard">
+                                <div class="sdnav-menu-items_li">
+                                    <div class="sdnav-menu-items-inner">
+                                        <span class="material-icons">pie_chart_outline</span>
+                                        <div style="padding-left: 10px;">Dashboard</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="sidenav-menu-items">
+                            <a mat-list-item style="padding:0px;" routerLink="students">
+                                <div class="sdnav-menu-items_li">
+                                    <div class="sdnav-menu-items-inner">
+                                        <span class="material-icons">school</span>
+                                        <div style="padding-left: 10px;">Estudiantes</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="sidenav-menu-items">
+                            <a mat-list-item style="padding:0px;" routerLink="enrollment">
+                                <div class="sdnav-menu-items_li">
+                                    <div class="sdnav-menu-items-inner">
+                                        <span class="material-icons">format_list_numbered</span>
+                                        <div style="padding-left: 10px;">Matrícula</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-divider></mat-divider>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

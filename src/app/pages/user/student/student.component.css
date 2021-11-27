@@ -1,0 +1,11 @@
+
+.students{
+    margin:1.5rem;
+}
+#map{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 1rem;
+    margin-left: 21rem;
+    margin-right: 5rem;
+}
